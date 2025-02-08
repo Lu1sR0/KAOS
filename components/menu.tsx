@@ -1,0 +1,139 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link as ScrollLink } from "react-scroll";
+
+const navItems = [
+  { href: "home", label: "Home", isSection: true },
+  { href: "sobre", label: "Sobre", isSection: true },
+  { href: "assinaturas", label: "Assinaturas", isSection: true },
+  { href: "/area-membros", label: "Área de Membros", isSection: false },
+  { href: "/loja-online", label: "Loja Online", isSection: false },
+  { href: "contato", label: "Contato", isSection: true },
+];
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <motion.header
+      className={`fixed w-full z-50 backdrop-blur-lg transition-all duration-300 ${
+        isScrolled ? "bg-black/80 shadow-lg" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/">
+          <div className="relative w-[140px] h-[50px] sm:w-[180px] sm:h-[60px]">
+            <Image
+              src="/logokaos.svg"
+              alt="Comunidade Kaos"
+              fill
+              priority
+              className="object-contain"
+            />
+          </div>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex space-x-8">
+          {navItems.map((item, index) => (
+            <motion.div
+              key={item.href}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              {item.isSection ? (
+                <ScrollLink
+                  to={item.href}
+                  smooth={true}
+                  duration={500}
+                  className="text-white hover:text-red-500 transition-all relative group text-lg font-medium"
+                  style={{ cursor: "pointer", display: "block" }}
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
+                </ScrollLink>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="text-white hover:text-red-500 transition-all relative group text-lg font-medium"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
+                </Link>
+              )}
+            </motion.div>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700 transition-all"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </motion.button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden fixed inset-0 bg-black/90 flex flex-col items-center justify-center space-y-6"
+          >
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                {item.isSection ? (
+                  <ScrollLink
+                    to={item.href}
+                    smooth={true}
+                    duration={500}
+                    className="block text-white hover:text-red-500 transition-all relative group text-lg font-medium"
+                    style={{ cursor: "pointer", display: "block" }}
+                    onClick={() => setIsOpen(false)} // Fecha o menu ao clicar
+                  >
+                    {item.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
+                  </ScrollLink>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-white text-2xl font-semibold hover:text-red-500 transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  );
+}
