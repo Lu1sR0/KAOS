@@ -20,18 +20,31 @@ const navItems = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      if (window.scrollY > lastScrollY) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(window.scrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <motion.header
-      className={`fixed w-full z-50 backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-black/80 shadow-lg" : "bg-transparent"}`}
+      className={`fixed w-full z-50 backdrop-blur-lg transition-all duration-300 ${
+        isScrolled ? "bg-black/80 shadow-lg" : "bg-transparent"
+      } ${isVisible ? "top-0" : "-top-20"}`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/">

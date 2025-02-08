@@ -21,9 +21,7 @@ export function Iphone15ProDemo() {
           Junte-se a nós e acompanhe as últimas tendências e estratégias de marketing.
         </p>
         <a
-          href="https://chat.whatsapp.com/JiE0u8NVhwe6AVsyXFbE5i"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/formulario"
           className="inline-block mt-6"
         >
           <motion.button
@@ -42,7 +40,7 @@ export function Iphone15ProDemo() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        className="relative w-[460px] md:w-[380px] drop-shadow-[0_10px_20px_rgba(255,0,0,0.4)]"
+        className="relative w-[300px] md:w-[380px] lg:w-[460px] drop-shadow-[0_10px_20px_rgba(255,0,0,0.4)]"
       >
         <Iphone15Pro className="size-full">
           <div className="flex items-center justify-center h-full">
