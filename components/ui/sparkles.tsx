@@ -19,8 +19,117 @@ interface SparklesProps {
   mousemove?: boolean;
   hover?: boolean;
   background?: string;
-  options?: Record<string, unknown>; // Substituindo any por unknown
+  options?: Record<string, unknown>;
 }
+
+const defaultOptions = (
+  background: string,
+  hover: boolean,
+  mousemove: boolean,
+  color: string,
+  opacity: number,
+  opacitySpeed: number,
+  speed: number,
+  minSpeed: number | null,
+  size: number,
+  minSize: number | null,
+  density: number,
+  direction: string,
+  minOpacity: number | null
+) => ({
+  background: {
+    color: {
+      value: background,
+    },
+  },
+  fullScreen: {
+    enable: false,
+    zIndex: 1,
+  },
+  fpsLimit: 300,
+  interactivity: {
+    events: {
+      onClick: {
+        enable: true,
+        mode: 'push',
+      },
+      onHover: {
+        enable: hover,
+        mode: 'grab',
+        parallax: {
+          enable: mousemove,
+          force: 60,
+          smooth: 10,
+        },
+      },
+      resize: true,
+    },
+    modes: {
+      push: {
+        quantity: 4,
+      },
+      repulse: {
+        distance: 200,
+        duration: 0.4,
+      },
+    },
+  },
+  particles: {
+    color: {
+      value: color,
+    },
+    move: {
+      enable: true,
+      direction,
+      speed: {
+        min: minSpeed || speed / 130,
+        max: speed,
+      },
+      straight: true,
+    },
+    collisions: {
+      absorb: {
+        speed: 2,
+      },
+      bounce: {
+        horizontal: {
+          value: 1,
+        },
+        vertical: {
+          value: 1,
+        },
+      },
+      enable: false,
+      maxSpeed: 50,
+      mode: 'bounce',
+      overlap: {
+        enable: true,
+        retries: 0,
+      },
+    },
+    number: {
+      value: density,
+    },
+    opacity: {
+      value: {
+        min: minOpacity || opacity / 10,
+        max: opacity,
+      },
+      animation: {
+        enable: true,
+        sync: false,
+        speed: opacitySpeed,
+      },
+    },
+    size: {
+      value: {
+        min: minSize || size / 1.5,
+        max: size,
+      },
+    },
+  },
+  detectRetina: true,
+});
 
 export function Sparkles({
   className,
@@ -40,6 +149,7 @@ export function Sparkles({
   options = {},
 }: SparklesProps) {
   const [isReady, setIsReady] = useState(false);
+  const id = useId();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -49,106 +159,10 @@ export function Sparkles({
     });
   }, []);
 
-  const id = useId();
-  const defaultOptions = {
-    background: {
-      color: {
-        value: background,
-      },
-    },
-    fullScreen: {
-      enable: false,
-      zIndex: 1,
-    },
-    fpsLimit: 300,
-
-    interactivity: {
-      events: {
-        onClick: {
-          enable: true,
-          mode: 'push',
-        },
-        onHover: {
-          enable: hover,
-          mode: 'grab',
-          parallax: {
-            enable: mousemove,
-            force: 60,
-            smooth: 10,
-          },
-        },
-        resize: true, // Tipo definido corretamente
-      },
-      modes: {
-        push: {
-          quantity: 4,
-        },
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
-      },
-    },
-    particles: {
-      color: {
-        value: color,
-      },
-      move: {
-        enable: true,
-        direction,
-        speed: {
-          min: minSpeed || speed / 130,
-          max: speed,
-        },
-        straight: true,
-      },
-      collisions: {
-        absorb: {
-          speed: 2,
-        },
-        bounce: {
-          horizontal: {
-            value: 1,
-          },
-          vertical: {
-            value: 1,
-          },
-        },
-        enable: false,
-        maxSpeed: 50,
-        mode: 'bounce',
-        overlap: {
-          enable: true,
-          retries: 0,
-        },
-      },
-      number: {
-        value: density,
-      },
-      opacity: {
-        value: {
-          min: minOpacity || opacity / 10,
-          max: opacity,
-        },
-        animation: {
-          enable: true,
-          sync: false,
-          speed: opacitySpeed,
-        },
-      },
-      size: {
-        value: {
-          min: minSize || size / 1.5,
-          max: size,
-        },
-      },
-    },
-    detectRetina: true,
-  };
+  // Merge defaultOptions with the options prop
+  const mergedOptions = { ...defaultOptions(background, hover, mousemove, color, opacity, opacitySpeed, speed, minSpeed, size, minSize, density, direction, minOpacity), ...options };
 
   return (
-    isReady && (
-      <Particles id={id} options={defaultOptions} className={className} />
-    )
+    isReady && <Particles id={id} options={mergedOptions} className={className} />
   );
 }
