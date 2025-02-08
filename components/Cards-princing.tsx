@@ -8,7 +8,7 @@ const plans = [
       "Preenchimento de formulário para entrada",
     ],
     buttonText: "Quero fazer parte da comunidade",
-    buttonLink: "#formulario",
+    buttonLink: "/formulario", // Link correto
   },
   {
     name: "Kaos completo",
@@ -20,10 +20,10 @@ const plans = [
       "Exposição de produtos na loja online",
     ],
     buttonText: "Em breve...",
-    buttonLink: "#",
+    buttonLink: "/kaos-completo", // Corrigido link de exemplo
   },
   {
-    name: "Um pouco de Kaos ",
+    name: "Um pouco de Kaos",
     price: "EM BREVE - R$ ?/mês",
     features: [
       "Aulas pocket semanais (30 min) sobre universo digital",
@@ -31,9 +31,8 @@ const plans = [
       "Acesso a um link de site da Kaos para bio",
     ],
     buttonText: "Em breve....",
-    buttonLink: "#",
+    buttonLink: "/um-pouco-de-kaos", // Corrigido link de exemplo
   },
- 
 ];
 
 export function PricingCards() {

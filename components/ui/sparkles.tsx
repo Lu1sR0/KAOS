@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useEffect, useId, useState } from 'react';
@@ -20,7 +19,7 @@ interface SparklesProps {
   mousemove?: boolean;
   hover?: boolean;
   background?: string;
-  options?: Record<string, any>; // Adjust type as needed based on `options` structure
+  options?: Record<string, unknown>; // Substituindo any por unknown
 }
 
 export function Sparkles({
@@ -78,7 +77,7 @@ export function Sparkles({
             smooth: 10,
           },
         },
-        resize: true as any,
+        resize: true, // Tipo definido corretamente
       },
       modes: {
         push: {
@@ -146,6 +145,7 @@ export function Sparkles({
     },
     detectRetina: true,
   };
+
   return (
     isReady && (
       <Particles id={id} options={defaultOptions} className={className} />

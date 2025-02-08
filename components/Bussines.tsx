@@ -14,7 +14,9 @@ function Bussines() {
               Venha ser parte do <br /> KAOS
             </h1>
           </article>
-          <PricingCards />
+          <div className="relative z-[10]">
+            <PricingCards />
+          </div>
           <div className="absolute bottom-0 z-[2] h-[400px] w-full overflow-hidden [mask-image:radial-gradient(100%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#ff0000,transparent_90%)] before:opacity-40 after:absolute">
             <Sparkles
               density={1800}

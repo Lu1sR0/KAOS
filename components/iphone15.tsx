@@ -1,6 +1,5 @@
 "use client"; // Se estiver em Next.js (use isso no topo do arquivo)
 
-
 import { motion } from "framer-motion";
 import { AnimatedListDemo } from "./animatedlist";
 import Iphone15Pro from "./magicui/iphone-15-pro";
@@ -19,8 +18,7 @@ export function Iphone15ProDemo() {
           Melhor grupo e comunidade de marketing do Brasil
         </h2>
         <p className="text-lg text-gray-300">
-          Junte-se a nós e acompanhe as últimas tendências e estratégias de
-          marketing.
+          Junte-se a nós e acompanhe as últimas tendências e estratégias de marketing.
         </p>
         <a
           href="https://chat.whatsapp.com/JiE0u8NVhwe6AVsyXFbE5i"
@@ -48,7 +46,7 @@ export function Iphone15ProDemo() {
       >
         <Iphone15Pro className="size-full">
           <div className="flex items-center justify-center h-full">
-            <AnimatedListDemo className="text-black h-[790px] overflow-hidden" />
+            <AnimatedListDemo className="text-black max-h-[790px] overflow-hidden" />
           </div>
         </Iphone15Pro>
       </motion.div>

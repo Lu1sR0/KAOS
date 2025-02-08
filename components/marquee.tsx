@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marquee";
+import Image from 'next/image';
 
 const reviews = [
   {
@@ -101,9 +102,17 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <Image
+          className="rounded-full"
+          width={32}
+          height={32}
+          alt=""
+          src={img}
+        />{" "}
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">{name}</figcaption>
+          <figcaption className="text-sm font-medium dark:text-white">
+            {name}
+          </figcaption>
           <p className="text-xs font-medium dark:text-white/40">{username}</p>
         </div>
       </div>
@@ -114,9 +123,14 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div id="testemunhos" className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
+    <div
+      id="testemunhos"
+      className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden"
+    >
       {/* Título centralizado */}
-      <h2 className="mb-6 text-4xl  font-semibold text-gray-900 dark:text-white">Testemunhos</h2>
+      <h2 className="mb-6 text-4xl  font-semibold text-gray-900 dark:text-white">
+        Testemunhos
+      </h2>
 
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (

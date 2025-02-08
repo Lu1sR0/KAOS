@@ -41,11 +41,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth dark">
-      <link rel="shortcut icon" href="/kaosico.png" type="image/x-icon" />
-      <div className="fixed inset-0 -z-10">
-        <AuroraBackgroundDemo />
-      </div>
-      <body className={`${poppins.className} min-h-screen`}>{children}</body>
+      <head>
+        <link rel="shortcut icon" href="/kaosico.png" type="image/x-icon" />
+      </head>
+      <body className={`${poppins.className} min-h-screen`}>
+        <div className="fixed inset-0 -z-10">
+          <AuroraBackgroundDemo />
+        </div>
+        {children}
+      </body>
     </html>
   )
 }
