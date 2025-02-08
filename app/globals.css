@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 @layer base {
   /* Custom Scrollbar Styles */
   ::-webkit-scrollbar {

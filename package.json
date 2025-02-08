@@ -16,6 +16,7 @@
     "@tabler/icons-react": "^3.30.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
+    "@types/swiper": "^5.4.3",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
     "class-variance-authority": "^0.7.1",
@@ -30,6 +31,7 @@
     "react-dom": "^19.0.0",
     "react-element-to-jsx-string": "^17.0.0",
     "react-scroll": "^1.9.2",
+    "swiper": "^11.2.2",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.173.0"
@@ -40,6 +42,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-scroll": "^1.8.10",
+    "@types/react-slick": "^0.23.13",
     "@types/three": "^0.173.0",
     "eslint": "^9.20.0",
     "eslint-config-next": "^15.1.6",

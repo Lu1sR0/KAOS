@@ -23,7 +23,7 @@ function Textrandom() {
 
   return (
     <div className='py-10 rounded-md' id="textrandom">
-      <h1 className='text-4xl relative z-10 text-center h-[120px] md:h-auto leading-tight font-bold text-white'>
+      <h1 className='text-6xl relative z-10 text-center h-[120px] md:h-auto leading-tight font-bold text-[#ff0000]'>
         {isVisible && <RandomizedTextEffect text='O KAOS' />}
       </h1>
     </div>

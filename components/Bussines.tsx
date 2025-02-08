@@ -17,7 +17,7 @@ function Bussines() {
           <div className="relative z-[10]">
             <PricingCards />
           </div>
-            <div className="hidden sm:block absolute bottom-0 z-[2] h-[400px] w-full overflow-hidden [mask-image:radial-gradient(100%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#ff0000,transparent_90%)] before:opacity-40 after:absolute">
+          <div className="hidden sm:block absolute bottom-0 z-[2] h-[400px] w-full overflow-hidden [mask-image:radial-gradient(100%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#ff0000,transparent_90%)] before:opacity-40 after:absolute">
             <Sparkles
               density={1800}
               speed={1.2}
@@ -25,7 +25,7 @@ function Bussines() {
               direction="top"
               className="absolute inset-x-0 bottom-0 h-full w-full"
             />
-            </div>
+          </div>
         </section>
       </main>
     </>
