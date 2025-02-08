@@ -7,7 +7,7 @@ import Iphone15Pro from "./magicui/iphone-15-pro";
 
 export function Iphone15ProDemo() {
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-center gap-16 p-12 text-white top-20">
+    <div id="home" className="relative flex flex-col md:flex-row items-center justify-center gap-16 p-12 text-white top-20">
       {/* Texto ao lado do iPhone */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}

@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth dark">
-      <link rel="shortcut icon" href="/icons8-favicon-32.png" type="image/x-icon" />
+      <link rel="shortcut icon" href="/kaosico.png" type="image/x-icon" />
       <div className="fixed inset-0 -z-10">
         <AuroraBackgroundDemo />
       </div>

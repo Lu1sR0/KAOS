@@ -1,29 +1,50 @@
 // components/Sobre.js
 
-import React from 'react';
-import { CardSpotlightDemo } from './card';
+import React from "react";
+import { CardSpotlightDemo } from "./card";
+import Textrandom from "./textrandom";
 
 const Sobre = () => {
   return (
-    <section id="sobre" className=" py-16 px-6 md:px-12">
+    <section id="sobre" className="py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-white">Sobre Nós</h2>
+        <Textrandom />
         <p className="mt-4 text-lg text-white">
-          Bem-vindo ao <span className="font-semibold text-red-600">CardSpotlightDemo</span>! Somos uma equipe apaixonada por criar experiências digitais inovadoras que impressionam e envolvem. Nosso objetivo é transformar ideias em soluções criativas e funcionais, com um foco especial em design de interfaces modernas, intuitivas e acessíveis.
+          Bem-vindo ao <span className="font-semibold text-red-600">Kaos</span>!
+          Somos um grupo apaixonado por marketing digital, composto por
+          Designers, Social Media, Gestores de Tráfego, Empreendedores do meio
+          digital e muitos outros profissionais talentosos.
         </p>
         <p className="mt-4 text-lg text-white">
-          No <span className="font-semibold text-red-600">CardSpotlightDemo</span>, buscamos sempre a excelência em cada projeto, seja no desenvolvimento de sites, identidade visual ou soluções interativas. Nosso time é composto por profissionais com experiência em diversas áreas, unidos pela missão de oferecer resultados que atendam às necessidades dos nossos clientes de forma única e personalizada.
+          No <span className="font-semibold text-red-600">Kaos</span>, nossa
+          missão é conectar mentes criativas e inovadoras para desenvolver
+          estratégias de marketing que realmente fazem a diferença. Acreditamos
+          no poder da colaboração e na troca de ideias para alcançar resultados
+          extraordinários.
         </p>
         <p className="mt-4 text-lg text-white">
-          Estamos prontos para ajudar você a destacar sua marca, melhorar sua presença online e atingir seus objetivos de forma eficaz e impactante. Venha fazer parte da nossa jornada e descubra como podemos transformar seu projeto em um sucesso!
+          Nossa equipe é formada por especialistas com vasta experiência em
+          diversas áreas do marketing digital. Juntos, trabalhamos para criar
+          campanhas impactantes, desenvolver marcas fortes, desenhar interfaces
+          intuitivas e gerenciar redes sociais de forma eficaz. Cada projeto é
+          uma oportunidade de superar expectativas e entregar valor real aos
+          nossos clientes.
         </p>
-        
-        {/* Aqui você insere o componente CardSpotlightDemo */}
-        <div className="mt-8">
-          <CardSpotlightDemo />
+        <p className="mt-4 text-lg text-white">
+          Junte-se a nós e descubra como podemos transformar suas ideias em
+          realidade, fortalecendo sua presença online e impulsionando seu
+          negócio para novos patamares!
+        </p>
+
+        <div className="mt-8 flex justify-center items-center">
+          <div className="w-full flex flex-col items-center lg:flex-row lg:justify-center">
+            <CardSpotlightDemo />
+          </div>
         </div>
       </div>
+      
     </section>
+    
   );
 };
 

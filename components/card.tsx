@@ -1,44 +1,41 @@
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 const cards = [
-  {
-    title: "Authentication steps",
-    description: "Follow these steps to secure your account:",
-    steps: [
-      "Enter your email address",
-      "Create a strong password",
-      "Set up two-factor authentication",
-      "Verify your identity",
-    ],
-    footer: "Ensuring your account is properly secured helps protect your personal information and data.",
-  },
-  {
-    title: "Payment Process",
-    description: "Steps to complete your payment:",
-    steps: [
-      "Enter your payment details",
-      "Confirm your billing address",
-      "Review your order",
-      "Complete the payment",
-    ],
-    footer: "Make sure to review all details before completing the payment.",
-  },
-  {
-    title: "Profile Setup",
-    description: "Steps to set up your profile:",
-    steps: [
-      "Upload a profile picture",
-      "Fill in your personal information",
-      "Set your preferences",
-      "Save your changes",
-    ],
-    footer: "A complete profile helps others to know you better.",
-  },
+    {
+        title: "Missão",
+        description: "Empoderar indivíduos através do conhecimento digital e networking.",
+        steps: [
+            "Oferecer cursos de alta qualidade",
+            "Promover eventos de networking",
+            "Fornecer recursos atualizados",
+        ],
+        footer: "Nosso objetivo é capacitar você com as ferramentas necessárias para o sucesso.",
+    },
+    {
+        title: "Visão",
+        description: "Ser a principal plataforma de transformação profissional no mundo digital.",
+        steps: [
+            "Expandir nossa oferta de cursos",
+            "Inovar com novas tecnologias",
+            "Alto padrão de qualidade",
+        ],
+        footer: "Estamos comprometidos em ser líderes na marketing digital.",
+    },
+    {
+        title: "Equipe Fundadora",
+        description: "Um grupo de profissionais apaixonados por inovação e marketing digital.",
+        steps: [
+            "Experiência em diversas áreas",
+            "Compromisso com a excelência",
+            "Foco na inovação",
+        ],
+        footer: "Nossa equipe está aqui para apoiar sua jornada de aprendizado.",
+    },
 ];
 
 export function CardSpotlightDemo() {
   return (
-    <div className="flex flex-wrap gap-8">
+    <div className="flex flex-col gap-8 lg:flex-row lg:flex-wrap lg:justify-start">
       {cards.map((card, index) => (
         <CardSpotlight key={index} className="h-96 w-96">
           <p className="text-xl font-bold relative z-20 mt-2 text-white">
@@ -60,6 +57,7 @@ export function CardSpotlightDemo() {
     </div>
   );
 }
+
 
 const Step = ({ title }: { title: string }) => {
   return (

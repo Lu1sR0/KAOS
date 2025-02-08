@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -11,6 +11,7 @@ const navItems = [
   { href: "home", label: "Home", isSection: true },
   { href: "sobre", label: "Sobre", isSection: true },
   { href: "assinaturas", label: "Assinaturas", isSection: true },
+  { href: "testemunhos", label: "Testemunhos", isSection: true },
   { href: "/area-membros", label: "Área de Membros", isSection: false },
   { href: "/loja-online", label: "Loja Online", isSection: false },
   { href: "contato", label: "Contato", isSection: true },
@@ -30,20 +31,12 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed w-full z-50 backdrop-blur-lg transition-all duration-300 ${
-        isScrolled ? "bg-black/80 shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed w-full z-50 backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-black/80 shadow-lg" : "bg-transparent"}`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/">
           <div className="relative w-[140px] h-[50px] sm:w-[180px] sm:h-[60px]">
-            <Image
-              src="/logokaos.svg"
-              alt="Comunidade Kaos"
-              fill
-              priority
-              className="object-contain"
-            />
+            <Image src="/logokaos.svg" alt="Comunidade Kaos" fill priority className="object-contain" />
           </div>
         </Link>
 
@@ -61,8 +54,8 @@ export default function Header() {
                   to={item.href}
                   smooth={true}
                   duration={500}
-                  className="text-white hover:text-red-500 transition-all relative group text-lg font-medium"
-                  style={{ cursor: "pointer", display: "block" }}
+                  offset={-80} // Adicionado o offset
+                  className="text-white hover:text-red-500 transition-all relative group text-lg font-medium cursor-pointer"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
@@ -70,7 +63,7 @@ export default function Header() {
               ) : (
                 <Link
                   href={item.href}
-                  className="text-white hover:text-red-500 transition-all relative group text-lg font-medium"
+                  className="text-white hover:text-red-500 transition-all relative group text-lg font-medium cursor-pointer"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
@@ -99,8 +92,16 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-0 bg-black/90 flex flex-col items-center justify-center space-y-6"
+            className="lg:hidden absolute top-0 left-0 w-full h-screen bg-black/90 flex flex-col items-center justify-center space-y-6"
           >
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="absolute top-6 right-6 text-white text-3xl"
+              onClick={() => setIsOpen(false)}
+            >
+              <X />
+            </motion.button>
             {navItems.map((item, index) => (
               <motion.div
                 key={item.href}
@@ -113,17 +114,16 @@ export default function Header() {
                     to={item.href}
                     smooth={true}
                     duration={500}
-                    className="block text-white hover:text-red-500 transition-all relative group text-lg font-medium"
-                    style={{ cursor: "pointer", display: "block" }}
-                    onClick={() => setIsOpen(false)} // Fecha o menu ao clicar
+                    offset={-80} // Adicionado o offset
+                    className="text-white text-2xl font-semibold hover:text-red-500 transition-all cursor-pointer"
+                    onClick={() => setIsOpen(false)}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
                   </ScrollLink>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-white text-2xl font-semibold hover:text-red-500 transition-all"
+                    className="text-white text-2xl font-semibold hover:text-red-500 transition-all cursor-pointer"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
