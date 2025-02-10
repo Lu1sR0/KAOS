@@ -14,7 +14,7 @@ const navItems = [
   { href: "testemunhos", label: "Testemunhos", isSection: true },
   { href: "/area-membros", label: "Área de Membros", isSection: false },
   { href: "/loja-online", label: "Loja Online", isSection: false },
-  { href: "/formulario", label: "Contato", isSection: false },
+  // { href: "/formulario", label: "Contato", isSection: false },
 ];
 
 export default function Header() {
