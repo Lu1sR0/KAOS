@@ -21,7 +21,7 @@ export function Iphone15ProDemo() {
           Junte-se a nós e acompanhe as últimas tendências e estratégias de marketing.
         </p>
         <a
-          href="#"
+          href="/formulario"
           className="inline-block mt-6"
         >
           <motion.button

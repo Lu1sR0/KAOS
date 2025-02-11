@@ -8,7 +8,7 @@ const plans = [
       "Preenchimento de formulário para entrada",
     ],
     buttonText: "Quero fazer parte da comunidade",
-    buttonLink: "#", // Link correto
+    buttonLink: "/formulario", // Link correto
   },
   {
     name: "Kaos completo",

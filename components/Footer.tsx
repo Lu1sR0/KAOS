@@ -13,6 +13,8 @@ const menuItems = [
   { href: "testemunhos", label: "Testemunhos", isSection: true },
   { href: "/area-membros", label: "Área de Membros", isSection: false },
   { href: "/loja-online", label: "Loja Online", isSection: false },
+  { href: "/formulario", label: "contato", isSection: false },
+
 ]
 
 const socialIcons = [
