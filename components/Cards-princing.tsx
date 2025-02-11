@@ -8,7 +8,7 @@ const plans = [
       "Preenchimento de formulário para entrada",
     ],
     buttonText: "Quero fazer parte da comunidade",
-    buttonLink: "/formulario", // Link correto
+    buttonLink: "#", // Link correto
   },
   {
     name: "Kaos completo",
@@ -20,7 +20,7 @@ const plans = [
       "Exposição de produtos na loja online",
     ],
     buttonText: "Em breve...",
-    buttonLink: "/kaos-completo", // Corrigido link de exemplo
+    buttonLink: "#", // Corrigido link de exemplo
   },
   {
     name: "Um pouco de Kaos",
@@ -31,7 +31,7 @@ const plans = [
       "Acesso a um link de site da Kaos para bio",
     ],
     buttonText: "Em breve....",
-    buttonLink: "/um-pouco-de-kaos", // Corrigido link de exemplo
+    buttonLink: "#", // Corrigido link de exemplo
   },
 ];
 
